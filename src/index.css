@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-tech-bg text-tech-text-secondary font-mono;
+  background-image: linear-gradient(rgba(26, 26, 46, 0.95), rgba(26, 26, 46, 0.95)), url('/src/assets/tech-background.svg'); /* Add a subtle background pattern */
+  background-size: cover;
+}
+
+/* Custom styles for analog clock */
+.analog-clock .hand {
+  @apply absolute w-1/2 h-[2px] bg-tech-accent top-1/2 origin-[100%] transition-transform duration-300 ease-in-out z-10;
+  transform-origin: 100%;
+}
+
+.analog-clock .hour-hand {
+  @apply bg-tech-text-primary h-[4px] w-[35%];
+  left: 15%;
+  transform: rotate(90deg); /* Initial position */
+}
+
+.analog-clock .minute-hand {
+   @apply h-[3px] w-[45%];
+   left: 5%;
+  transform: rotate(90deg);
+}
+
+.analog-clock .second-hand {
+  @apply bg-tech-accent h-[1px] w-[48%];
+  left: 2%;
+  transform: rotate(90deg);
+}
+
+.analog-clock .center-dot {
+  @apply absolute w-2 h-2 bg-tech-text-secondary rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 shadow-glow;
+}
+
+/* Add subtle markers */
+.analog-clock .marker {
+    @apply absolute bg-tech-border;
+    width: 1px;
+    height: 5px;
+    transform-origin: 50% 50%;
+}
+
+.analog-clock .marker.hour {
+    height: 8px;
+    width: 2px;
+}
+
+/* Position markers (example for 12, 3, 6, 9) */
+.analog-clock .marker-12 { top: 5%; left: 50%; transform: translateX(-50%); }
+.analog-clock .marker-3 { top: 50%; left: 95%; transform: translateY(-50%) rotate(90deg); }
+.analog-clock .marker-6 { top: 95%; left: 50%; transform: translateX(-50%) rotate(180deg); }
+.analog-clock .marker-9 { top: 50%; left: 5%; transform: translateY(-50%) rotate(270deg); }
